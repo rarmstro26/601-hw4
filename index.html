@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <!-- Link to stylesheet -->
+    <link rel="stylesheet" href="./CSS/main.css">
+
+    <title>Form HW4</title>
+</head>
+
+<body>
+    <!-- Setup form container w/ action=URL and method=POST -->
+    <!-- Using combo of HTML input validation and JS from validateForm() on form submit via novalidate -->
+    <form name="form-1" method="post"
+        action="https://cs601.bu-course-examples.com/hw4/380a98f5-5191-496f-8aa1-7acc1da83cc5" novalidate
+        onsubmit="return validateForm();">
+
+        <!-- Setup text input section with field validations -->
+        <section class="input-section">
+            <h2 id="input-header">Enter your information:</h2>
+
+            <label for="firstName" class="form-label">Enter your first name:</label><br>
+            <input type="text" class="input-text" id="firstName" name="firstName" minlength="2" pattern="[A-Za-z]+$"
+                placeholder="First Name" required>
+            <div id="first-name-error" class="error-message"></div>
+
+            <label for="lastName" class="form-label">Enter your last name:</label><br>
+            <input type="text" class="input-text" id="lastName" name="lastName" minlength="2" pattern="[A-Za-z]+$"
+                placeholder="Last Name" required>
+            <div id="last-name-error" class="error-message"></div>
+
+            <label for="facilitator" class="form-label">Enter your facilitator's (first) name:</label><br>
+            <input type="text" class="input-text" id="facilitator" name="facilitator" minlength="2"
+                placeholder="Facilitator" required>
+            <div id="facilitator-error" class="error-message"></div>
+
+        </section>
+
+        <!-- Setup radio buttons section with default selected -->
+        <section class="radio-section">
+            <h2>Type of question:</h2>
+            <!-- Default radio button selected -->
+            <input type="radio" name="radioMessage" value="question" checked>Question <br>
+            <input type="radio" name="radioMessage" value="comment">Comment <br>
+            <input type="radio" name="radioMessage" value="other">Other <br>
+
+        </section>
+
+        <!-- Setup check boxes section-->
+        <section class="checkbox-section">
+            <h2>What do you need help with? </h2>
+            <p id="checkbox-label">(Select all that apply)</p>
+            <!-- Checkbox -->
+            <input type="checkbox" name="checkBox1" value="homework">Homework <br>
+            <input type="checkbox" name="checkBox2" value="quiz">Quiz/Test <br>
+            <input type="checkbox" name="checkBox3" value="termProj">Term Project <br>
+        </section>
+
+        <!-- Setup submit and reset form buttons section -->
+        <section class="button-section">
+
+            <!-- Setup submit form button-->
+            <input type="submit" id="submit-button" name="submitButton" value="Submit">
+            <!-- Setup reset button that will clear form fields + call function to clear error msgs  -->
+            <input type="reset" id="reset-button" name="resetButton" value="Reset" onclick="clearErrors()">
+
+        </section>
+    </form>
+
+    <!-- Link controller JS file -->
+    <script src="./JS/controller.js"></script>
+
+</body>
+
+</html>
